@@ -4,13 +4,13 @@
 }
 
  body{
-    background-color: #F7F7FF;
+    background-color: #279AF1;
     text-align: center ;
 
  }
 
  .container{
-    background-color: #279AF1;
+    /* background-color: #279AF1; */
     height: 70vh;
     display: flex;
     justify-content: center;
@@ -31,5 +31,20 @@
  .box{
     height: 18vmin;
     width: 18vmin;
+    border: 3px black solid;
+    border-radius: 1rem ;
+    /* border: none; */
     background-color: #60656F;
+    font-size: 8vmin;
+    color: white;
  }
+
+
+ #reset{
+   padding: 1rem; 
+   font-size: 1.5rem;
+   border: 3px black solid;
+   border-radius: 20px;
+   background-color: brown;
+   color: wheat;
+}
