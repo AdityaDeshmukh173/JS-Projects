@@ -6,6 +6,7 @@ let msg = document.querySelector("#win");
 
 
 let turnO = true ;  // playerX , playerO
+let count = 0;
 
 const winPatterns = [
     [0,1,2],
@@ -22,23 +23,37 @@ const resetGame = () => {
     turnO = true ;
     enableBoxes();
     msgcontain.classList.add("hide");
+    count = 0;
 }
 
 boxes.forEach((box) => {
     box.addEventListener("click", () => {
         console.log(`Box was Clicked`);
         if (turnO) {                    // Turn O
+            box.style.color="#bc4749" ;
             box.innerText = "O" ;
             turnO = false;
         }else{                          // Turn X
+            box.style.color="#386641"
             box.innerText = "X"; 
             turnO = true ;
         }
         box.disabled = true ;
-        
+        count++;
+
+        let checkWin = checkWinner();
+        if(count === 9 && checkWin != true){
+            drawMatch();
+        }
         checkWinner();
     })
 })
+
+const drawMatch = () =>{
+    msg.innerText = `Match Draw NO Winner Unfortunateky`;
+    msgcontain.classList.remove("hide");
+    disableBoxes();
+}
 
 const enableBoxes = () => {
     for (const box of boxes) {
